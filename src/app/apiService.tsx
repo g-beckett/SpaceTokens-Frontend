@@ -9,26 +9,57 @@ interface UserData {
 }
 
 export const createUser = async (userData: UserData) => {
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-        try {
-            console.log('worked');
-            const response = await fetch('http://localhost:8080/space-tokens/api/v1/user/new', {
-                method: 'POST',
-                body: JSON.stringify(userData),  
-                headers: myHeaders,
-            });
+    try {
+        console.log('worked');
+        const response = await fetch('http://localhost:8080/space-tokens/api/v1/user/new', {
+            method: 'POST',
+            body: JSON.stringify(userData),  
+            headers: myHeaders,
+        });
 
-            if (!response.ok) {  
-                throw new Error(`HTTP error: ${response.status}`);
-            }
-            const responseData = await response.json();  
-            console.log('yip yip hooray:', responseData);
-
-        } catch (error) {
-            console.error('errrr:', error);
+        if (!response.ok) {  
+            throw new Error(`HTTP error: ${response.status}`);
         }
-    };
+        const responseData = await response.json();  
+        console.log('yip yip hooray:', responseData);
+
+    } catch (error) {
+        console.error('errrr:', error);
+    }
+};
+
+interface CapsuleData {
+    username: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+}
+
+export const createCapsule = async (capsuleData: CapsuleData) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    try {
+        console.log('worked');
+        const response = await fetch('http://localhost:8080/space-tokens/api/v1/capsule/new?userId={userId}', {
+            method: 'POST',
+            body: JSON.stringify(capsuleData),  
+            headers: myHeaders,
+        });
+
+        if (!response.ok) {  
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+        const responseData = await response.json();  
+        console.log('yip yip hooray:', responseData);
+
+    } catch (error) {
+        console.error('errrr:', error);
+    }
+};
 
 export default createUser;
