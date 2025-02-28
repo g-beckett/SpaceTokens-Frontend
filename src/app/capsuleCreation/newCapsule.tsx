@@ -1,21 +1,21 @@
 'use client'
 import React, { useState } from 'react';
-import createCapsule from '../apiService';
+import createCapsule from '../apiCapsule';
 import Head from 'next/head';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Label from 'next';
+import '../globals.css';
 
 const CapsuleCreationForm: React.FC = () =>  {
     const router = useRouter();
 
     const [capsuleData, setCapsuleData] = useState({
-        //id: [],  
+      //  userId: [],  
         capsuleName: '',
-        unlockedDate: '', 
+        unlockedDate: new Date(), 
         description: '',
-        // isPublic: '',
-        // statis: '',
+        isPublic: false,
+        statusId: '',
 })
 
 const handleSubmit = async (event: React.FormEvent) => {
@@ -33,11 +33,17 @@ const handleSubmit = async (event: React.FormEvent) => {
 };
 
 const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    if (name === 'unlockedDate') {
+        setCapsuleData({...capsuleData, [name]: new Date(value) });
+
+    } else {
     setCapsuleData({ ...capsuleData, [event.target.name]: event.target.value });
+    }
  };
 
     return(
-        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]" >
         {/* <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start"> */}
         <section>
             <div>
@@ -59,17 +65,19 @@ const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                         onChange = {handleChange}
                         required /> </p>
                     <br />
+
                     <label htmlFor = "unlockedDate"> unlocked date :  </label>
                     <input type = "date" 
                         id = "unlockedDate" 
                         name = "unlockedDate" 
                         // min="current date"
                         placeholder = "unlocked fdate" 
-                        value = {capsuleData.unlockedDate}
+                        value = {capsuleData.unlockedDate.toISOString().split('T')[0]}
                         onChange = {handleChange}
                         required />
                     <br />
                     <br />
+
                     <label htmlFor = "description"> description :  </label>
                     <input type = "text" 
                         name = "description" 
@@ -79,8 +87,7 @@ const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                         onChange = {handleChange} 
                         required /> 
                     <br />
-                    {/* need isPublic and status */}
-                    <br />
+                    
                     <button type = "reset"> Reset </button>
                     <br />
                     <button type = "submit"  id = "mySubmit" onClick={() => alert('capsule created')} > User Capsule </button>

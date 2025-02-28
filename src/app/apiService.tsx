@@ -8,6 +8,11 @@ interface UserData {
     password: string;
 }
 
+interface LoginData {
+    username: string;
+    password: string;
+}
+
 export const createUser = async (userData: UserData) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -23,6 +28,7 @@ export const createUser = async (userData: UserData) => {
         if (!response.ok) {  
             throw new Error(`HTTP error: ${response.status}`);
         }
+
         const responseData = await response.json();  
         console.log('yip yip hooray:', responseData);
 
@@ -31,35 +37,26 @@ export const createUser = async (userData: UserData) => {
     }
 };
 
-interface CapsuleData {
-    username: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-}
-
-export const createCapsule = async (capsuleData: CapsuleData) => {
+export const loginUser = async (loginData: LoginData) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-
+  
     try {
-        console.log('worked');
-        const response = await fetch('http://localhost:8080/space-tokens/api/v1/capsule/new?userId={userId}', {
+        const response = await fetch('http://localhost:8080/space-tokens/api/v1/user/login', {
             method: 'POST',
-            body: JSON.stringify(capsuleData),  
+            body: JSON.stringify(loginData),
             headers: myHeaders,
         });
-
-        if (!response.ok) {  
+  
+        if (!response.ok) {
             throw new Error(`HTTP error: ${response.status}`);
         }
-        const responseData = await response.json();  
-        console.log('yip yip hooray:', responseData);
 
+        const responseData = await response.json();
+        console.log('Login successful:', responseData);
+        return responseData;
+  
     } catch (error) {
-        console.error('errrr:', error);
+        console.error('Login failed:', error);
     }
 };
-
-export default createUser;
