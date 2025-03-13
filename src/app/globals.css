@@ -5,6 +5,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --input-text-light: #1e293b; /* A darker shade for light mode */
+  --input-text-dark: #e2e8f0; /* A lighter shade for dark mode */
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -12,10 +20,4 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
