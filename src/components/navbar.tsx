@@ -1,8 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-
-
 const NAV_MENU = ["Home", "About Us", "Timeline"]
 
 function NavItem({ children }: { children: React.ReactNode }) {
@@ -37,9 +35,9 @@ export function Navbar() {
                 setIsScrolling(false);
             }     
         }
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-    
   }, []);
 
   return (
@@ -48,7 +46,7 @@ export function Navbar() {
       }`} >
     
       <div className="container mx-auto flex items-center justify-between p-4">
-        <a href = "localhost:3000"
+        <a href = "/hero.tsx"
             target="_blank"
             className={`text-lg font-bold ${
             isScrolling ? "text-white" : "text-white"
@@ -119,11 +117,14 @@ export function Navbar() {
               <NavItem key={name}>{name}</NavItem>
             ))}
           </ul>
+
           <div className="mt-6 flex items-center gap-2">
-            <button className="px-4 py-2 rounded text-gray-700"> Log in </button>
-            <a href="" target="_blank">
+            <a href="/userLogin" target="_blank">
+              <button className="px-4 py-2 rounded text-gray-700"> Log in </button>
+            </a>
+            <a href="/userCreation" target="_blank">
               <button className="px-4 py-2 rounded bg-gray-200 text-gray-700">
-                blocks
+                Sign Up
               </button>
             </a>
           </div>

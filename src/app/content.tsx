@@ -69,7 +69,7 @@ function Content() {
                   Pierce Beckett
                 </h5>
                 <p className="w-full md:w-10/12 text-gray-500">
-                  The best big brother and back-end developer ever !!!
+                  The back-end developer 
                 </p>
               </div>
 
@@ -87,7 +87,7 @@ function Content() {
                   Gabrielle Beckett
                 </h5>
                 <p className="w-full md:w-10/12 text-gray-500">
-                  A noob
+                  The front-end developer
                 </p>
               </div>
 

@@ -38,10 +38,10 @@ const UserCreationForm: React.FC = () =>  {
 
   return (
 
-    <div className = "container mx-auto px-4 h-full">
+    <div className = "container mx-auto px-4 h-full pt-20">
       <div className = "flex content-center items-center justify-center h-full">
         <div className = "w-full lg:w-4/12 px-4">
-          <div className = "relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
+          <div className = "relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg bg-blueGray-200 border-0 custom-shadow">
             <div className = "rounded-t mb-0 px-6 py-6">
               <div className = "text-center mb-3">
                 <h6 className = "text-blueGray-500 text-sm font-bold">
@@ -49,7 +49,7 @@ const UserCreationForm: React.FC = () =>  {
                 </h6>
               </div>
               <div className = "btn-wrapper text-center">
-                <button className = "bg-white active:bg-blueGray-50 text-gray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                <button className = "login-button custom-shadow"
                   type = "button" >
                   <img alt = "..." 
                     className = "w-5 mr-1" 
@@ -57,7 +57,7 @@ const UserCreationForm: React.FC = () =>  {
                   Google
                 </button>
 
-                <button className = "bg-white active:bg-blueGray-50 text-gray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                <button className = "login-button custom-shadow"
                   type = "button" >
                   <img alt="..." 
                     className = "w-5 mr-1" 
@@ -65,7 +65,7 @@ const UserCreationForm: React.FC = () =>  {
                   Microsoft
                 </button>
 
-                <button className = "bg-white active:bg-blueGray-50 text-gray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                <button className = "login-button custom-shadow"
                   type = "button" >
                   <img alt = "..." 
                     className = "w-5 mr-1" 
@@ -80,9 +80,10 @@ const UserCreationForm: React.FC = () =>  {
               <div className = "text-blueGray-400 text-center mb-3 font-bold">
                 <small> Or sign up with credentials</small>
               </div>
+
               <form method = "post" onSubmit = {handleSubmit}>
                 <div className = "relative w-full mb-3">
-                  <label className = "block uppercase text-blueGray-600 dark:text-blueGray-200 text-xs font-bold mb-2"
+                  <label className = "block uppercase text-xs font-bold mb-2"
                     htmlFor = "grid-username">
                     Username
                   </label>
@@ -92,57 +93,57 @@ const UserCreationForm: React.FC = () =>  {
                     placeholder = "username"
                     value = {userData.username}
                     onChange = {handleChange}
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 dark:text-blueGray-200 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    className="border-0 px-3 py-3 placeholder-blueGray-300 rounded text-sm custom-shadow-hover focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     required />
                 </div>
 
                 <div className="relative w-full mb-3">
-                  <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                  <label className="block uppercase text-xs font-bold mb-2"
                     htmlFor="grid-password" >
                     Password
                   </label>
                   <input type="password"
-                    id = "password"
+                    id = "password-id"
                     name = "password"
                     placeholder = "password"
                     value = {userData.password}
                     onChange = {handleChange}
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    className="border-0 px-3 py-3 placeholder-blueGray-300 rounded text-sm custom-shadow-hover focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     required />
                 </div>
 
                 <div className = "relative w-full mb-3">
-                  <label className = "block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                  <label className = "block uppercase text-xs font-bold mb-2"
                     htmlFor = "grid-firstName" >
                     First Name
                   </label>
                   <input type = "text"
-                    id = "firstName"
+                    id = "firstName-id"
                     name = "firstName"
                     placeholder = "first name"
                     value = {userData.firstName}
                     onChange = {handleChange}
-                    className = "border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    className = "border-0 px-3 py-3 placeholder-blueGray-300 rounded text-sm custom-shadow-hover focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     required />
                 </div>
 
                 <div className = "relative w-full mb-3">
-                  <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                  <label className="block uppercase text-xs font-bold mb-2"
                     htmlFor="grid-lastName" >
                     Last Name
                   </label>
                   <input type = "text"
-                    id = "lastName"
+                    id = "lastName-id"
                     name = "lastName"
                     placeholder = "last name"
                     value = {userData.lastName}
                     onChange = {handleChange}
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    className="border-0 px-3 py-3 placeholder-blueGray-300 rounded text-sm custom-shadow-hover focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     required />
                 </div>
 
                 <div className = "relative w-full mb-3">
-                  <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                  <label className="block uppercase text-xs font-bold mb-2"
                     htmlFor="grid-email" >
                     Email
                   </label>
@@ -152,7 +153,7 @@ const UserCreationForm: React.FC = () =>  {
                     placeholder = "email"
                     value = {userData.email}
                     onChange = {handleChange}
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    className="border-0 px-3 py-3 placeholder-blueGray-300 rounded text-sm custom-shadow-hover focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     required />
                 </div>
 
@@ -168,21 +169,23 @@ const UserCreationForm: React.FC = () =>  {
                 </div> */}
 
                 <div className="text-center mt-6">
-                  <button className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                  <button className="login-button custom-shadow"
                     type = "submit" id = "mySubmit"
                   > Sign Up </button>
                 </div>
               </form>
             </div>
           </div>
+
           <div className="flex flex-wrap mt-6 relative">
             <div className="w-1/2">
-              <a href="#" //add password later on?
+              <a href="#"             //add forgot password later on?
                 onClick={(e) => e.preventDefault()}
                 className="text-blueGray-200" >
                 <small> Forgot password? </small>
               </a>
             </div>
+
             <div className="w-1/2 text-right">
               <Link href="/userLogin">
                 <small> Login to exisiting account </small>
@@ -192,76 +195,6 @@ const UserCreationForm: React.FC = () =>  {
         </div>
       </div>
     </div>
-
-    // <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-    //   {/* <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start"> */}
-    //   <section>
-    //     <h1> user creation </h1>
-    //     <p> 
-    //       <Link href = '/timeline'>
-    //         <button style={{ marginTop: '10px' }}>
-    //           go to timeline
-    //         </button>
-    //         <br />
-    //       </Link>
-    //     </p>
-    //     <div>
-    //       <form method = "post" onSubmit={handleSubmit} >
-    //         <label htmlFor = "username"> Username :  </label>
-    //         <input type = "text" 
-    //           id = "username-id" 
-    //           name = "username" 
-    //           placeholder = "username" 
-    //           value = {userData.username}
-    //           onChange = {handleChange}
-    //           required />
-    //         <br />
-
-    //         <label htmlFor = "password"> Password :  </label>
-    //         <input type = "password" 
-    //           id = "password" 
-    //           name = "password" 
-    //           placeholder = "password" 
-    //           value = {userData.password}
-    //           onChange = {handleChange}
-    //           required />
-    //         <br />
-
-    //         <label htmlFor = "firstName"> First Name :  </label>
-    //         <input type = "text" 
-    //           name = "firstName" 
-    //           placeholder = "first name"
-    //           value = {userData.firstName}
-    //           onChange = {handleChange} 
-    //           required /> 
-    //         <br />
-
-    //         <label htmlFor = "lastName"> Last Name :  </label>
-    //         <input type = "text" 
-    //           name = "lastName" 
-    //           placeholder = "last name" 
-    //           value = {userData.lastName}
-    //           onChange = {handleChange}
-    //           required /> 
-    //         <br />
-
-    //         <label htmlFor = "email"> Email :  </label>
-    //         <input type = "email" 
-    //           name = "email" 
-    //           placeholder = "email" 
-    //           value = {userData.email}
-    //           onChange = {handleChange}
-    //           required /> 
-    //         <br />
-
-    //         <button type = "reset"> Reset </button>
-    //         <br />
-    //         <button type = "submit"  id = "mySubmit" onClick={() => alert('user created')} > Create User </button>
-    //       </form>
-    //     </div>
-    //     <br />
-    //   </section>
-    // </div>
   ); 
 }
 

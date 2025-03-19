@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --input-text-light: #1e293b; /* A darker shade for light mode */
-  --input-text-dark: #e2e8f0; /* A lighter shade for dark mode */
+  --foreground: #111827;
+  --input-text-light: #1e293b;  /* text input */
+  --input-bg-light: #c8dfea;  /* textbox */
+  --login-button-color: #8eb1c2; 
+  --login-button-hover-color: #446879; /* the color when you hover over */
+  --login-hover-color: #acc8d7;
 }
 
 body {
@@ -15,9 +19,85 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+input {
+  color: var(--input-text-light);
+  background-color: var(--input-bg-light);
+}
+
+.custom-shadow {
+  box-shadow: 0 10px 15px -3px var(--input-text-light), 0 4px 6px -4px var(--input-text-light);
+}
+
+.login-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 25px;  /* internal spacing */
+  margin-right: 0.5rem; /* external spacing */
+  margin-bottom: 0.25rem;
+
+  font-size: 16px; 
+  font-weight: normal;
+  text-transform: uppercase;
+  color: white;
+
+  background-color: var(--login-button-color);
+  border: none;
+  border-radius: 8px; 
+}
+
+.login-button:hover {
+  background-color: var(--login-button-hover-color); 
+}
+
+.custom-shadow-hover:hover {
+  background-color: var(--login-hover-color); 
+}
+
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #111827;
     --foreground: #ededed;
+    --input-text-dark: #e2e8f0; /* text input */
+    --input-bg-dark: #1e293b; /* textbox */
+    --login-button-color: #446879; 
+    --login-button-hover-color: #253f4b; /* the color when you hover over */
+    --login-hover-color: #253f4b;
+    
+
+  input {
+    color: var(--input-text-dark);
+    background-color: var(--input-bg-dark);
+  }
+
+  .custom-shadow {
+    box-shadow: 0 10px 15px -3px var(--input-bg-dark), 0 4px 6px -4px var(--input-bg-dark); 
+  }
+
+  .login-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 25px; 
+    margin-right: 0.5rem; 
+    margin-bottom: 0.25rem;
+  
+    font-size: 16px; 
+    font-weight: normal;
+    text-transform: uppercase;
+    color: white;
+  
+    background-color: var(--login-button-color);
+    border: none;
+    border-radius: 8px; 
+  }
+
+  .login-button:hover {
+    background-color: var(--login-button-hover-color); 
+  }
+  
+  .custom-shadow-hover:hover {
+    background-color: var(--login-hover-color);
+  }
+  
   }
 }
